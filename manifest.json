@@ -3,6 +3,22 @@
   "name": "Flixy",
   "version": "1.0",
 
-  "default_locale": "en",
-  "description": "Syncs a Netflix session across multiple users"
+  "description": "Syncs a Netflix session across multiple users",
+  
+  "permissions": [
+    "http://www.netflix.com/watch/*"
+  ],
+  
+  "background": {
+    "persistent": false,
+    "scripts": [ "event.js" ]
+  },
+
+  "content_scripts": [
+    {
+      "js": [ "watch.js" ],
+      "matches": [ "http://www.netflix.com/watch/*" ]
+    }  
+  ]
+
 }
